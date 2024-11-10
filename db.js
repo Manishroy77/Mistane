@@ -1,8 +1,11 @@
 const mongoose = require('mongoose');
-//const mongoUrl = 'mongodb://localhost:27017/HOUSE';
-const mongoUrl = 'mongodb+srv://roy:admin@cluster0.g3iiw.mongodb.net/HOUSE';
+require('dotenv').config();
+//const mongoUrlLocal = process.env.mongoUrlLocal;
+const mongoUrlLocal = process.env.mongoUrlOnline;
 
-mongoose.connect(mongoUrl);
+//const mongoUrl = 'mongodb+srv://roy:admin@cluster0.g3iiw.mongodb.net/HOUSE';
+
+mongoose.connect(mongoUrlLocal);
 const db = mongoose.connection;
 
 db.on('connected',()=>{
